@@ -1,23 +1,21 @@
 // import liraries
 import React, { Component } from 'react';
 import {
-  View, Text, StyleSheet, Button, TextInput,
+  View, StyleSheet, Button,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { blur, change } from 'redux-form';
+import { blur } from 'redux-form';
 import SingUpForm from './Formas/SignupForm';
 import { actionRegistro, actionCargarImagen, actionLimpiarImagenSignUp } from '../../Store/ACCIONES';
 import SeleccionarImagen from '../Seleccionarimagen';
-import CONSTANTES from '../../Store/CONSTANTES';
 
-// create a component
+
 class SignUp extends Component {
   componentWillUnmount() {
     this.props.limpiarImagen();
   }
 
   registroDeUsario=(values) => {
-    console.log(values);
     this.props.registro(values);
   }
 

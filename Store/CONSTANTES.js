@@ -5,8 +5,11 @@ const CONSTANTES = {
   CERRARSESION: 'CERRARSESION',
   LIMPIAR_IMAGEN_SIGNUP: 'LIMPIAR_IMAGEN_SIGNUP',
   CARGAR_IMAGEN_SIGNUP: 'CARGAR_IMAGEN_SIGNUP',
-  CLOUDINARY_NAME: ' https://api.cloudinary.com/v1_1/ddjm9hedk/image/upload',
+  // CLOUDINARY_NAME: 'http://api.cloudinary.com/v1_1/ddjm9hedk/image/upload',
+  CLOUDINARY_NAME: 'https://www.mxplanb.xyz/article/articulofiltro/',
   CLOUDINARY_PRESET: 'datv2djh',
+  CARGAR_IMAGEN_PUBLICACION: 'CARGAR_IMAGEN_PUBLICACION',
+  LIMPIAR_IMAGEN_PUBLICACION: 'LIMPIAR_IMAGEN_PUBLICACION',
 };
 
 

@@ -30,24 +30,32 @@ const registroFotoCloudinary = ({ imagen }) => {
   formImagen.append('file', foto);
 
   return fetch(CONSTANTES.CLOUDINARY_NAME, {
-    method: 'POST',
-    // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formImagen,
-  }).then(response => response);
+    method: 'GET',
+    // headers: {
+    //   'Content-Type': 'multipart/form-data;',
+    // },
+    // body: formImagen,
+  }).then(response => response.json());
 };
 
 function* sagaRegistro(values) {
   try {
     const imagen = yield select(state => state.reducerImagenSignUp);
     console.log(imagen);
-
     const urlFoto = yield call(registroFotoCloudinary, imagen);
     console.log(urlFoto);
-    // cargar foto
-    // const registro = yield call(registroEnFirebase, values.datos);
-    // const { email, uid } = registro;
-    // const { datos: { nombre } } = values;
-    // yield call(registroEnBaseDeDatos, { uid, email, nombre });
+    console.log(urlFoto.secure_url);
+    const fotoUrl = urlFoto.secure_url;
+    
+    const registro = yield call(registroEnFirebase, values.datos);
+    const { email, uid } = registro;
+    const { datos: { nombre } } = values;
+    yield call(registroEnBaseDeDatos, {
+      uid,
+      email,
+      nombre,
+      fotoUrl,
+    });
   } catch (error) {
     console.log(error);
   }

@@ -14,6 +14,7 @@ class Seleccion extends Component {
   }
 
   render() {
+    console.log(this.props.usuario)
     return (
       <View style={styles.container}>
         {this.props.usuario ? <RutasAutenticadas />
